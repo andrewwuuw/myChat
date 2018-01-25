@@ -1,0 +1,29 @@
+<div class="col-md-12">
+  <div class="group">
+    <%= link_to("新增論壇", new_forum_path, class: "btn btn-primary pull-right") %>
+  </div>
+  <table class= "table table-hover">
+    <thead>
+      <tr>
+        <td>編號</td>
+        <td>論壇名稱</td>
+        <td>描述</td>
+        <td>功能</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @forums.each do |forum| %>
+        <tr>
+          <td><%= @count %></td>
+          <td><%= link_to(forum.title, forum_path(forum)) %></td>
+          <td><%= forum.description %></td>
+          <td>
+            <%= link_to("編輯", edit_forum_path(forum), class: "btn btn-sm btn-default") %>
+            <%= link_to("刪除", forum_path(forum), class: "btn btn-sm btn-default", method: :delete, data:{confirm: "你確定要刪除此論壇嗎？"}) %>
+          </td>
+        </tr>
+        <% @count += 1 %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

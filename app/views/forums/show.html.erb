@@ -1,0 +1,23 @@
+<div class="col-md-12">
+  <div class="group">
+    <%= link_to("編輯", edit_forum_path(@forum), class: "btn btn-primary pull-right")%>
+  </div>
+  <h1><%= @forum.title %></h1>
+  <p><%= @forum.description %></p>
+  <hr>
+  <br>
+
+  <h2>聊天列表</h2>
+  <div class="messages">
+    <%= render  @forum.messages %>
+  </div>
+
+  <br><br>
+  <form>
+    <label>說些什麼:</label><br>
+    <input type="text" data-behavior="forum_speaker">
+  </form>
+  <br><br>
+
+  <%= link_to("回首頁", root_path, class: "btn btn-primary") %>
+</div>
